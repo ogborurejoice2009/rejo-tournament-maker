@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#0066ff"
+    >
+
+    <title>🏆 REJO Tournament Maker</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <link
+        rel="manifest"
+        href="manifest.json"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="topHeader">
+
+    <div class="logoArea">
+
+        <h1>🏆 REJO Tournament Maker</h1>
+
+        <p>
+            Manage • Compete • Crown Champions
+        </p>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav class="mainNav">
+
+    <button
+        type="button"
+        onclick="openPage('dashboard')"
+    >
+        🏠 Dashboard
+    </button>
+
+
+    <button
+        type="button"
+        onclick="openPage('playersPage')"
+    >
+        👥 Players
+    </button>
+
+
+    <button
+        type="button"
+        onclick="openPage('groupsPage')"
+    >
+        🏆 Groups
+    </button>
+
+
+    <button
+        type="button"
+        onclick="openPage('squadsPage')"
+    >
+        ⚽ Squads
+    </button>
+
+
+    <button
+        type="button"
+        onclick="openPage('fixturesPage')"
+    >
+        📅 Fixtures
+    </button>
+
+
+    <button
+        type="button"
+        onclick="openPage('tablePage')"
+    >
+        📊 Table
+    </button>
+
+
+    <button
+        type="button"
+        onclick="openPage('knockoutPage')"
+    >
+        🥇 Knockout
+    </button>
+
+
+    <button
+        type="button"
+        onclick="openPage('awardsPage')"
+    >
+        🏅 Awards
+    </button>
+
+
+    <button
+        type="button"
+        onclick="openPage('settingsPage')"
+    >
+        ⚙ Settings
+    </button>
+
+</nav>
+
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main>
+
+
+
+<!-- =========================================================
+     DASHBOARD
+========================================================= -->
+
+<section
+    id="dashboard"
+    class="page"
+>
+
+    <h2>🏠 Dashboard</h2>
+
+
+    <div class="dashboardCards">
+
+
+        <div class="card blue">
+
+            <h3>👥 Players</h3>
+
+            <h1 id="dashPlayers">
+                0
+            </h1>
+
+        </div>
+
+
+
+        <div class="card green">
+
+            <h3>⚽ Matches Played</h3>
+
+            <h1 id="dashPlayed">
+                0
+            </h1>
+
+        </div>
+
+
+
+        <div class="card orange">
+
+            <h3>📅 Matches Left</h3>
+
+            <h1 id="dashLeft">
+                0
+            </h1>
+
+        </div>
+
+
+
+        <div class="card gold">
+
+            <h3>🏆 Champion</h3>
+
+            <h2 id="dashChampion">
+                -
+            </h2>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="dashboardActions">
+
+
+        <button
+            type="button"
+            onclick="showGroupOptions()"
+        >
+            🏆 Create Groups
+        </button>
+
+
+        <button
+            type="button"
+            onclick="generateFixtures()"
+        >
+            📅 Generate Fixtures
+        </button>
+
+
+        <button
+            type="button"
+            onclick="openPage('squadsPage')"
+        >
+            ⚽ Manage Squads
+        </button>
+
+
+        <button
+            type="button"
+            onclick="createKnockout()"
+        >
+            🥇 Create Knockout
+        </button>
+
+
+    </div>
+
+
+    <div id="groupOptions"></div>
+
+</section>
+
+
+
+<!-- =========================================================
+     TOURNAMENT PLAYERS
+========================================================= -->
+
+<section
+    id="playersPage"
+    class="page"
+>
+
+    <h2>👥 Players</h2>
+
+
+    <div class="panel">
+
+
+        <input
+            id="playerName"
+            type="text"
+            placeholder="Enter player name"
+            autocomplete="off"
+        >
+
+
+        <label
+            for="playerLogo"
+            style="
+                display:block;
+                margin:12px 0 6px;
+                font-weight:bold;
+            "
+        >
+            🛡️ Team Logo
+        </label>
+
+
+        <input
+            id="playerLogo"
+            type="file"
+            accept="image/*"
+        >
+
+
+        <button
+            type="button"
+            onclick="addPlayer()"
+        >
+            ➕ Add Player
+        </button>
+
+
+    </div>
+
+
+    <!-- IMPORTANT:
+         This ID is ONLY for tournament players.
+         Squad FC Mobile players use squadPlayerList.
+    -->
+
+    <div
+        id="tournamentPlayerList"
+        class="tournamentPlayerList"
+    ></div>
+
+</section>
+
+
+
+<!-- =========================================================
+     GROUPS
+========================================================= -->
+
+<section
+    id="groupsPage"
+    class="page"
+>
+
+    <h2>🏆 Groups</h2>
+
+    <div id="groups"></div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SQUADS
+========================================================= -->
+
+<section
+    id="squadsPage"
+    class="page"
+>
+
+    <h2>⚽ Squads</h2>
+
+    <div id="squadArea"></div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FIXTURES
+========================================================= -->
+
+<section
+    id="fixturesPage"
+    class="page"
+>
+
+    <h2>📅 Fixtures</h2>
+
+    <div id="fixtures"></div>
+
+</section>
+
+
+
+<!-- =========================================================
+     TABLE
+========================================================= -->
+
+<section
+    id="tablePage"
+    class="page"
+>
+
+    <h2>📊 Group Table</h2>
+
+
+    <div class="panel">
+
+
+        <select
+            id="tableGroupSelect"
+            onchange="showTable(this.value)"
+        >
+
+            <option value="">
+                Select Group
+            </option>
+
+            <option value="Group A">
+                Group A
+            </option>
+
+            <option value="Group B">
+                Group B
+            </option>
+
+            <option value="Group C">
+                Group C
+            </option>
+
+            <option value="Group D">
+                Group D
+            </option>
+
+        </select>
+
+
+    </div>
+
+
+    <div id="tableArea"></div>
+
+</section>
+
+
+
+<!-- =========================================================
+     KNOCKOUT
+========================================================= -->
+
+<section
+    id="knockoutPage"
+    class="page"
+>
+
+    <h2>🥇 Knockout Stage</h2>
+
+    <div id="knockoutArea"></div>
+
+</section>
+
+
+
+<!-- =========================================================
+     AWARDS
+========================================================= -->
+
+<section
+    id="awardsPage"
+    class="page"
+>
+
+    <h2>🏅 Tournament Awards</h2>
+
+    <div id="awardsArea"></div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SETTINGS
+========================================================= -->
+
+<section
+    id="settingsPage"
+    class="page"
+>
+
+    <h2>⚙ Settings</h2>
+
+
+    <div class="dashboardActions">
+
+
+        <button
+            type="button"
+            onclick="resetTournament()"
+        >
+            🗑 Reset Tournament
+        </button>
+
+
+        <button
+            type="button"
+            onclick="backupData()"
+        >
+            💾 Backup Data
+        </button>
+
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT FILES
+========================================================= -->
+
+<script src="storage.js"></script>
+
+<script src="fcplayers.js"></script>
+
+<script src="players.js"></script>
+
+<script src="groups.js"></script>
+
+<script src="fixtures.js"></script>
+
+<script src="results.js"></script>
+
+<script src="table.js"></script>
+
+<script src="knockout.js"></script>
+
+<script src="squads.js"></script>
+
+<script src="awards.js"></script>
+
+<script src="settings.js"></script>
+
+<script src="script.js"></script>
+
+
+
+<!-- =========================================================
+     SERVICE WORKER
+========================================================= -->
+
+<script>
+
+if ("serviceWorker" in navigator) {
+
+    window.addEventListener(
+        "load",
+        function () {
+
+            navigator.serviceWorker
+                .register("./service-worker.js")
+                .then(function (registration) {
+
+                    console.log(
+                        "REJO Service Worker registered:",
+                        registration.scope
+                    );
+
+                })
+                .catch(function (error) {
+
+                    console.error(
+                        "Service worker registration failed:",
+                        error
+                    );
+
+                });
+
+        }
+    );
+
+}
+
+</script>
+
+
+</body>
+
+</html>
