@@ -84,7 +84,7 @@ function addPlayer(){
     }
 
 
-    // Convert image to something localStorage can save
+    // Convert image to localStorage
     let reader = new FileReader();
 
 
@@ -105,7 +105,13 @@ function showPlayers(){
 
     let data = loadData();
 
-    let box = document.getElementById("playerList");
+
+    // FIX:
+    // index.html uses tournamentPlayerList
+    let box = document.getElementById(
+        "tournamentPlayerList"
+    );
+
 
     if(!box){
         return;
@@ -122,7 +128,11 @@ function showPlayers(){
 
     if(players.length === 0){
 
-        box.innerHTML = "<p>No players added yet.</p>";
+        box.innerHTML = `
+            <p class="noPlayersMessage">
+                No players added yet.
+            </p>
+        `;
 
         return;
 
