@@ -85,6 +85,9 @@ const fcplayers = [
   { name: "Lahm", positions: ["CDM", "CM", "RB"], ovr: 127 },
   { name: "Marcos Llorente", positions: ["RB", "CDM", "CM"], ovr: 123 },
   { name: "Ajer", positions: ["LB", "CB", "RB"], ovr: 123 },
+  { name: "Cherki", positions: ["LW", "RW", "CAM", "CM"], ovr: 124 },
+  { name: "Kalulu", positions: ["CB"], ovr: 122 },
+  { name: "Neuer", positions: ["GK"], ovr: 121 },
 
   // ==========================================================
   // 125 OVR
