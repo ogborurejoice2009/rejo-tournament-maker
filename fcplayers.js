@@ -88,6 +88,11 @@ const fcplayers = [
   { name: "Cherki", positions: ["LW", "RW", "CAM", "CM"], ovr: 124 },
   { name: "Kalulu", positions: ["CB"], ovr: 122 },
   { name: "Neuer", positions: ["GK"], ovr: 121 },
+    { name: "Charlton", positions: ["CAM"], ovr: 125 },
+  { name: "Rafael Leão", positions: ["ST"], ovr: 124 },
+  { name: "Marc Cucurella", positions: ["CB"], ovr: 123 },
+  { name: "Marcel Desailly", positions: ["CB"], ovr: 126 },
+  { name: "Franz Beckenbauer", positions: ["CDM"], ovr: 125 },
 
   // ==========================================================
   // 125 OVR
