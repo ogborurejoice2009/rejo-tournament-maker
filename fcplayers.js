@@ -61,38 +61,7 @@ const fcplayers = [
   { name: "Shevchenko", positions: ["RW", "ST"], ovr: 122 },
   { name: "Berbatov", positions: ["ST"], ovr: 122 },
   { name: "Guti", positions: ["CM", "CAM"], ovr: 122 },
-  { name: "Shearer", positions: ["ST"], ovr: 124 },
-  { name: "Martinez", positions: ["CB"], ovr: 124 },
-  { name: "Quinones", positions: ["RW", "ST"], ovr: 123 },
-  { name: "Lizarazu", positions: ["LB"], ovr: 124 },
-  { name: "Diaz", positions: ["ST", "LW"], ovr: 125 },
-  { name: "Hazard", positions: ["LW", "CM"], ovr: 123 },
-  { name: "Chaloupek", positions: ["CB"], ovr: 123 },
-  { name: "Roberto Carlos", positions: ["LB"], ovr: 124 },
-  { name: "Alex Baena", positions: ["LW", "CM"], ovr: 124 },
-  { name: "Al Owairan", positions: ["RW", "RM"], ovr: 118 },
-  { name: "Gerard", positions: ["CM"], ovr: 120 },
-  { name: "Gordon", positions: ["LW", "RW"], ovr: 124 },
-  { name: "Barzagli", positions: ["CB", "RB"], ovr: 126 },
-  { name: "Kone", positions: ["CM", "CDM"], ovr: 123 },
-  { name: "Zambrotta", positions: ["RB"], ovr: 122 },
-  { name: "Pulisic", positions: ["RW", "LW", "ST"], ovr: 124 },
-  { name: "Ljunberg", positions: ["RW", "LW", "CM"], ovr: 124 },
-  { name: "Guehi", positions: ["CB"], ovr: 123 },
-  { name: "Keane", positions: ["CM", "CDM"], ovr: 122 },
-  { name: "Ferran Torres", positions: ["ST"], ovr: 123 },
-  { name: "Fernando Hierro", positions: ["CB"], ovr: 120 },
-  { name: "Lahm", positions: ["CDM", "CM", "RB"], ovr: 127 },
-  { name: "Marcos Llorente", positions: ["RB", "CDM", "CM"], ovr: 123 },
-  { name: "Ajer", positions: ["LB", "CB", "RB"], ovr: 123 },
-  { name: "Cherki", positions: ["LW", "RW", "CAM", "CM"], ovr: 124 },
-  { name: "Kalulu", positions: ["CB"], ovr: 122 },
-  { name: "Neuer", positions: ["GK"], ovr: 121 },
-    { name: "Charlton", positions: ["CAM"], ovr: 125 },
-  { name: "Rafael Leão", positions: ["ST"], ovr: 124 },
-  { name: "Marc Cucurella", positions: ["CB"], ovr: 123 },
-  { name: "Marcel Desailly", positions: ["CB"], ovr: 126 },
-  { name: "Franz Beckenbauer", positions: ["CDM"], ovr: 125 },
+
 
   // ==========================================================
   // 125 OVR
@@ -260,11 +229,6 @@ const fcplayers = [
   { name: "Akgun", positions: ["RM", "RW"], ovr: 122 },
   { name: "Di Canio", positions: ["ST", "CF"], ovr: 122 },
 
-
-  // ==========================================================
-  // FULL-NAME VERSIONS
-  // ==========================================================
-
   { name: "Raphinha", positions: ["LW", "RM", "RW"], ovr: 122 },
   { name: "Vitinha", positions: ["CM", "CDM"], ovr: 122 },
   { name: "Nuno Mendes", positions: ["LB", "LWB"], ovr: 122 },
@@ -278,6 +242,7 @@ const fcplayers = [
   { name: "Zlatan Ibrahimović", positions: ["ST"], ovr: 122 },
   { name: "Lúcio", positions: ["CB"], ovr: 122 },
   { name: "Michael Olise", positions: ["RW", "RM", "CAM"], ovr: 122 },
+  { name: "Marquinhos", positions: ["CB"], ovr: 122 },
   { name: "Lamine Yamal", positions: ["RW", "RM", "LW"], ovr: 122 },
   { name: "Sócrates", positions: ["CM", "CAM"], ovr: 122 },
   { name: "Rio Ferdinand", positions: ["CB"], ovr: 122 },
@@ -304,6 +269,7 @@ const fcplayers = [
   { name: "Ramires", positions: ["CDM", "CM"], ovr: 122 },
   { name: "Roy Makaay", positions: ["ST"], ovr: 122 },
   { name: "Míchel Salgado", positions: ["RB", "RWB"], ovr: 122 },
+  { name: "Karl-Heinz Rummenigge", positions: ["RW", "RM"], ovr: 122 },
   { name: "Nico Paz", positions: ["CAM", "CM"], ovr: 122 },
   { name: "Estêvão", positions: ["RW", "RM"], ovr: 122 },
   { name: "Désiré Doué", positions: ["LW", "CAM", "RW"], ovr: 122 },
@@ -440,6 +406,32 @@ const fcplayers = [
   { name: "Nuno Mendes", positions: ["LB", "LWB"], ovr: 122 },
   { name: "Vitinha", positions: ["CM", "CDM"], ovr: 122 },
 
+  { name: "Kylian Mbappé", positions: ["ST", "LW"], ovr: 127 },
+  { name: "Rodri", positions: ["CM", "CDM"], ovr: 127 },
+  { name: "Marc Cucurella", positions: ["LB", "LWB"], ovr: 127 },
+
+  { name: "Lionel Messi", positions: ["RW", "ST", "CAM"], ovr: 126 },
+  { name: "Jude Bellingham", positions: ["CM", "CAM"], ovr: 126 },
+  { name: "Nuno Mendes", positions: ["LB", "LWB"], ovr: 126 },
+  { name: "Dayot Upamecano", positions: ["CB"], ovr: 126 },
+  { name: "Dani Olmo", positions: ["CAM", "LW"], ovr: 126 },
+  { name: "Unai Simón", positions: ["GK"], ovr: 126 },
+  { name: "Lamine Yamal", positions: ["RW", "RM"], ovr: 126 },
+  { name: "Pau Cubarsí", positions: ["CB"], ovr: 126 },
+
+  { name: "Erling Haaland", positions: ["ST"], ovr: 125 },
+  { name: "Declan Rice", positions: ["CDM", "CM"], ovr: 125 },
+  { name: "Cristian Romero", positions: ["CB"], ovr: 125 },
+  { name: "Gregor Kobel", positions: ["GK"], ovr: 125 },
+  { name: "Timothy Castagne", positions: ["RB", "RWB"], ovr: 125 },
+  { name: "Saibari", positions: ["CAM", "CM"], ovr: 125 },
+  { name: "Aymeric Laporte", positions: ["CB"], ovr: 125 },
+  { name: "Pedro Porro", positions: ["RB", "RWB"], ovr: 125 },
+  { name: "Loïs Openda", positions: ["ST", "LW"], ovr: 125 },
+
+  { name: "Aleix Baena", positions: ["LW", "CAM"], ovr: 124 },
+  { name: "Jonathan David", positions: ["ST"], ovr: 124 },
+
 
   // ==========================================================
   // SUMMER SPECIAL
@@ -450,7 +442,7 @@ const fcplayers = [
 
 
   // ==========================================================
-  // CHAMPIONS - FULL NAMES
+  // CHAMPIONS
   // ==========================================================
 
   { name: "Didier Drogba", positions: ["ST"], ovr: 127 },
@@ -519,64 +511,6 @@ const fcplayers = [
   { name: "Akgün", positions: ["RM", "RW"], ovr: 122 },
   { name: "Paolo Di Canio", positions: ["ST", "CF"], ovr: 122 },
 
-
-  // ==========================================================
-  // NEW PLAYERS FROM USER SCREENSHOTS
-  // ==========================================================
-
-  // Ronaldo Nazário
-  { name: "Ronaldo Nazário", positions: ["ST"], ovr: 124 },
-
-  // George Best
-  { name: "George Best", positions: ["LW"], ovr: 120 },
-
-  // Ferenc Puskás
-  { name: "Ferenc Puskás", positions: ["ST"], ovr: 124 },
-
-  // Alessandro Del Piero
-  { name: "Alessandro Del Piero", positions: ["CAM", "ST"], ovr: 124 },
-
-  // Robert Lewandowski
-  { name: "Robert Lewandowski", positions: ["ST"], ovr: 124 },
-
-  // Mohamed Salah
-  { name: "Mohamed Salah", positions: ["RW"], ovr: 121 },
-
-  // Jamal Musiala
-  { name: "Jamal Musiala", positions: ["CAM", "CM"], ovr: 122 },
-
-  // Joško Gvardiol
-  { name: "Joško Gvardiol", positions: ["CB", "LB"], ovr: 123 },
-
-  // Ronald Araújo
-  { name: "Ronald Araújo", positions: ["CB"], ovr: 123 },
-
-  // Micky van de Ven
-  { name: "Micky van de Ven", positions: ["CB"], ovr: 124 },
-
-  // N'Golo Kanté
-  { name: "N'Golo Kanté", positions: ["CDM", "CM"], ovr: 123 },
-
-  // Marquinhos screenshot card
-  { name: "Marquinhos", positions: ["CB"], ovr: 124 },
-
-  // Harry Kane screenshot card
-  { name: "Harry Kane", positions: ["ST"], ovr: 121 },
-
-  // Eden Hazard screenshot card
-  { name: "Eden Hazard", positions: ["LM", "LW"], ovr: 123 },
-
-  // Antoine Semenyo screenshot card
-  { name: "Antoine Semenyo", positions: ["RM", "RW"], ovr: 124 },
-
-  // Theo Hernández screenshot card
-  { name: "Theo Hernández", positions: ["LB", "LWB"], ovr: 120 },
-
-  // Pedri screenshot card
-  { name: "Pedri", positions: ["CM"], ovr: 124 },
-
-  // Lamine Yamal screenshot card
-  { name: "Lamine Yamal", positions: ["RW", "RM"], ovr: 124 },
 
   // ==========================================================
   // NEW PLAYERS — 120 OVR
@@ -704,11 +638,6 @@ const fcplayers = [
   { name: "Ezri Konsa", positions: ["CB"], ovr: 119 },
   { name: "Igor Jesus", positions: ["ST"], ovr: 119 },
 
-
-  // ==========================================================
-  // 117 OVR
-  // ==========================================================
-
   { name: "Frimpong", positions: ["RB", "RM", "RW"], ovr: 117 },
   { name: "Frimpong", positions: ["RB"], ovr: 117 },
   { name: "Frenkie de Jong", positions: ["CM", "CDM"], ovr: 117 },
@@ -764,61 +693,46 @@ const fcplayers = [
 // FC PLAYERS FUNCTIONS
 // ============================================================
 
-
 // Get every player
 function getFCPlayers() {
-
   return fcplayers;
-
 }
 
 
 // Get players by position
 function getPlayersByPosition(position) {
-
   return fcplayers.filter(player =>
     Array.isArray(player.positions) &&
     player.positions.includes(position)
   );
-
 }
 
 
 // Search players by name
 function searchFCPlayers(searchText) {
 
-  const query =
-    String(searchText || "")
-      .trim()
-      .toLowerCase();
-
+  const query = String(searchText || "")
+    .trim()
+    .toLowerCase();
 
   if (query === "") {
-
     return fcplayers;
-
   }
 
-
   return fcplayers.filter(player =>
-
     String(player.name || "")
       .toLowerCase()
       .includes(query)
-
   );
-
 }
 
 
 // Search players by name + OVR
 function searchFCPlayersByOVR(searchText, ovr) {
 
-  const query =
-    String(searchText || "")
-      .trim()
-      .toLowerCase();
-
+  const query = String(searchText || "")
+    .trim()
+    .toLowerCase();
 
   return fcplayers.filter(player => {
 
@@ -828,18 +742,14 @@ function searchFCPlayersByOVR(searchText, ovr) {
         .toLowerCase()
         .includes(query);
 
-
     const ovrMatch =
       ovr === "" ||
       ovr === null ||
       ovr === undefined ||
       Number(player.ovr) === Number(ovr);
 
-
     return nameMatch && ovrMatch;
-
   });
-
 }
 
 
@@ -849,7 +759,6 @@ function getPlayersByOVR(ovr) {
   return fcplayers.filter(player =>
     Number(player.ovr) === Number(ovr)
   );
-
 }
 
 
@@ -860,7 +769,6 @@ function getPlayersByOVRRange(minOVR, maxOVR) {
     Number(player.ovr) >= Number(minOVR) &&
     Number(player.ovr) <= Number(maxOVR)
   );
-
 }
 
 
@@ -868,13 +776,10 @@ function getPlayersByOVRRange(minOVR, maxOVR) {
 function getPlayersByPositionAndOVR(position, ovr) {
 
   return fcplayers.filter(player =>
-
     Array.isArray(player.positions) &&
     player.positions.includes(position) &&
     Number(player.ovr) === Number(ovr)
-
   );
-
 }
 
 
@@ -882,15 +787,10 @@ function getPlayersByPositionAndOVR(position, ovr) {
 function getUniqueFCPlayerNames() {
 
   return [
-
     ...new Set(
-      fcplayers.map(player =>
-        player.name
-      )
+      fcplayers.map(player => player.name)
     )
-
   ];
-
 }
 
 
@@ -898,21 +798,14 @@ function getUniqueFCPlayerNames() {
 function getFCPositions() {
 
   return [
-
     ...new Set(
-
       fcplayers.flatMap(player =>
-
         Array.isArray(player.positions)
           ? player.positions
           : []
-
       )
-
     )
-
   ];
-
 }
 
 
@@ -920,45 +813,16 @@ function getFCPositions() {
 // MAKE DATABASE AVAILABLE TO THE REST OF THE APP
 // ============================================================
 
-window.fcplayers =
-  fcplayers;
-
-
-window.getFCPlayers =
-  getFCPlayers;
-
-
-window.getPlayersByPosition =
-  getPlayersByPosition;
-
-
-window.searchFCPlayers =
-  searchFCPlayers;
-
-
-window.searchFCPlayersByOVR =
-  searchFCPlayersByOVR;
-
-
-window.getPlayersByOVR =
-  getPlayersByOVR;
-
-
-window.getPlayersByOVRRange =
-  getPlayersByOVRRange;
-
-
-window.getPlayersByPositionAndOVR =
-  getPlayersByPositionAndOVR;
-
-
-window.getUniqueFCPlayerNames =
-  getUniqueFCPlayerNames;
-
-
-window.getFCPositions =
-  getFCPositions;
-
+window.fcplayers = fcplayers;
+window.getFCPlayers = getFCPlayers;
+window.getPlayersByPosition = getPlayersByPosition;
+window.searchFCPlayers = searchFCPlayers;
+window.searchFCPlayersByOVR = searchFCPlayersByOVR;
+window.getPlayersByOVR = getPlayersByOVR;
+window.getPlayersByOVRRange = getPlayersByOVRRange;
+window.getPlayersByPositionAndOVR = getPlayersByPositionAndOVR;
+window.getUniqueFCPlayerNames = getUniqueFCPlayerNames;
+window.getFCPositions = getFCPositions;
 
 console.log(
   "REJO FC Players loaded:",

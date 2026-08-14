@@ -1,40 +1,69 @@
-// players.js
+// ============================================================
+// REJO TOURNAMENT MAKER - TOURNAMENT PLAYERS
+// ============================================================
 
 
-function addPlayer(){
+function escapePlayerHTML(text) {
 
-    let input = document.getElementById("playerName");
-    let logoInput = document.getElementById("playerLogo");
+    return String(text ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
 
-    if(!input){
+
+/* ============================================================
+   ADD PLAYER
+============================================================ */
+
+function addPlayer() {
+
+    const input =
+        document.getElementById("playerName");
+
+    const logoInput =
+        document.getElementById("playerLogo");
+
+
+    if (!input) {
         return;
     }
 
-    let name = input.value.trim();
 
-    if(name === ""){
+    const name =
+        input.value.trim();
+
+
+    if (name === "") {
 
         alert("Enter player name");
 
         return;
-
     }
 
 
-    // Get selected logo
-    let logoFile = logoInput ? logoInput.files[0] : null;
+    const logoFile =
+        logoInput &&
+        logoInput.files &&
+        logoInput.files.length
+            ? logoInput.files[0]
+            : null;
 
 
-    // Function to save player
-    function savePlayer(logo){
+    function savePlayer(logo) {
 
         let data = loadData();
 
 
-        if(!Array.isArray(data.players)){
+        if (!data || typeof data !== "object") {
+            data = {};
+        }
 
+
+        if (!Array.isArray(data.players)) {
             data.players = [];
-
         }
 
 
@@ -60,158 +89,354 @@ function addPlayer(){
         saveData(data);
 
 
-        // Refresh player list
-        showPlayers();
-
-
-        // Clear inputs
         input.value = "";
 
-        if(logoInput){
+
+        if (logoInput) {
             logoInput.value = "";
         }
 
+
+        showPlayers();
+
+
+        if (
+            typeof updateDashboard ===
+            "function"
+        ) {
+
+            updateDashboard();
+
+        }
     }
 
 
-    // No logo selected
-    if(!logoFile){
+    if (!logoFile) {
 
         savePlayer("");
 
         return;
+    }
+
+
+    const reader =
+        new FileReader();
+
+
+    reader.onload =
+        function(event) {
+
+            savePlayer(
+                event.target.result
+            );
+
+        };
+
+
+    reader.readAsDataURL(logoFile);
+}
+
+
+/* ============================================================
+   SHOW PLAYERS
+============================================================ */
+
+function showPlayers() {
+
+    const data =
+        loadData();
+
+
+    /*
+     * THIS IS THE IMPORTANT PART.
+     *
+     * index.html uses:
+     *
+     * tournamentPlayerList
+     *
+     * NOT:
+     *
+     * playerList
+     */
+
+    let box =
+        document.getElementById(
+            "tournamentPlayerList"
+        );
+
+
+    /*
+     * Extra fallback in case another version
+     * of the HTML is currently loaded.
+     */
+
+    if (!box) {
+
+        box =
+            document.getElementById(
+                "playerList"
+            );
 
     }
 
 
-    // Convert image to localStorage
-    let reader = new FileReader();
+    if (!box) {
 
+        console.error(
+            "Players display box not found."
+        );
 
-    reader.onload = function(e){
-
-        savePlayer(e.target.result);
-
-    };
-
-
-    reader.readAsDataURL(logoFile);
-
-}
-
-
-
-function showPlayers(){
-
-    let data = loadData();
-
-
-    // FIX:
-    // index.html uses tournamentPlayerList
-    let box = document.getElementById(
-        "tournamentPlayerList"
-    );
-
-
-    if(!box){
         return;
     }
 
 
-    let players = Array.isArray(data.players)
-        ? data.players
-        : [];
+    const players =
+        data &&
+        Array.isArray(data.players)
+            ? data.players
+            : [];
 
+
+    /*
+     * Clear only the visual list.
+     *
+     * This DOES NOT delete players
+     * from localStorage.
+     */
 
     box.innerHTML = "";
 
 
-    if(players.length === 0){
+    if (players.length === 0) {
 
         box.innerHTML = `
-            <p class="noPlayersMessage">
-                No players added yet.
-            </p>
+
+            <div class="panel">
+
+                <p>
+                    No players added yet.
+                </p>
+
+            </div>
+
         `;
 
         return;
-
     }
 
 
-    players.forEach(player=>{
+    /*
+     * Render every registered player.
+     */
 
-        box.innerHTML += `
+    players.forEach(
+        function(player, index) {
 
-        <div class="player">
+            const safeName =
+                escapePlayerHTML(
+                    player &&
+                    player.name
+                        ? player.name
+                        : "Unknown"
+                );
 
-            ${
+
+            let logoHTML = "";
+
+
+            if (
+                player &&
                 player.logo
-                ?
-                `<img
-                    src="${player.logo}"
-                    style="
-                        width:50px;
-                        height:50px;
-                        object-fit:contain;
-                        border-radius:50%;
-                        vertical-align:middle;
-                        margin-right:10px;
-                    "
-                >`
-                :
-                ""
+            ) {
+
+                logoHTML = `
+
+                    <img
+                        src="${player.logo}"
+                        alt="${safeName}"
+                        class="tournamentPlayerLogo"
+                    >
+
+                `;
+
             }
 
-            <b>${player.name}</b>
+            else {
 
-            <button
-                type="button"
-                onclick="deletePlayer(${player.id})">
-                Delete
-            </button>
+                logoHTML = `
 
-        </div>
+                    <div
+                        class="tournamentPlayerLogoFallback"
+                    >
+                        👤
+                    </div>
 
-        `;
+                `;
 
-    });
+            }
 
+
+            const playerID =
+                player &&
+                player.id !== undefined
+                    ? player.id
+                    : index;
+
+
+            box.innerHTML += `
+
+                <div
+                    class="player tournamentPlayerCard"
+                >
+
+                    <div
+                        class="tournamentPlayerInfo"
+                    >
+
+                        ${logoHTML}
+
+
+                        <div
+                            class="tournamentPlayerDetails"
+                        >
+
+                            <strong>
+                                ${safeName}
+                            </strong>
+
+
+                            <span>
+                                Player ${index + 1}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="deletePlayerButton"
+                        onclick="deletePlayer(${playerID})"
+                    >
+                        🗑
+                    </button>
+
+                </div>
+
+            `;
+
+        }
+    );
 }
 
 
+/* ============================================================
+   DELETE PLAYER
+============================================================ */
 
-function deletePlayer(id){
+function deletePlayer(id) {
 
-    let data = loadData();
+    const data =
+        loadData();
 
 
-    if(!Array.isArray(data.players)){
+    if (
+        !data ||
+        !Array.isArray(data.players)
+    ) {
+
         return;
     }
 
 
-    data.players = data.players.filter(
-        player => player.id !== id
-    );
+    const player =
+        data.players.find(
+            function(p) {
+
+                return p.id === id;
+
+            }
+        );
+
+
+    if (!player) {
+        return;
+    }
+
+
+    if (
+        !confirm(
+            "Delete " +
+            player.name +
+            "?"
+        )
+    ) {
+
+        return;
+    }
+
+
+    data.players =
+        data.players.filter(
+            function(p) {
+
+                return p.id !== id;
+
+            }
+        );
 
 
     saveData(data);
 
 
-    // Refresh player list
     showPlayers();
 
+
+    if (
+        typeof updateDashboard ===
+        "function"
+    ) {
+
+        updateDashboard();
+
+    }
 }
 
 
+/* ============================================================
+   GET PLAYER LIST
+============================================================ */
 
-function getPlayerList(){
+function getPlayerList() {
 
-    let data = loadData();
+    const data =
+        loadData();
 
-    return Array.isArray(data.players)
-        ? data.players
-        : [];
 
+    if (
+        data &&
+        Array.isArray(data.players)
+    ) {
+
+        return data.players;
+
+    }
+
+
+    return [];
 }
+
+
+/* ============================================================
+   REFRESH WHEN PAGE OPENS
+============================================================ */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        showPlayers();
+
+    }
+);
